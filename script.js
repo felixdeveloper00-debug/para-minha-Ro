@@ -244,23 +244,40 @@ document
 
 
 });
-
-
-
-
-
-
-
-
-
-// ======================================
-// PRESENTE 🎁
-// ======================================
-
-
 document
-.getElementById("presente")
+.getElementById("caixaPresente")
 .addEventListener("click",()=>{
+
+
+    const caixa =
+    document.getElementById("caixaPresente");
+
+
+    caixa.classList.add("presente-aberto");
+
+
+
+    setTimeout(()=>{
+
+
+        document
+        .getElementById("presente")
+        .innerHTML = "💖✨";
+
+
+
+        document
+        .getElementById("mensagemPresente")
+        .innerHTML =
+
+        "O meu maior presente foi encontrar você, Rô ❤️";
+
+
+    },900);
+
+
+
+});
 
 
     document
