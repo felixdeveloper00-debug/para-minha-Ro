@@ -648,3 +648,100 @@ button:hover {
 
 
 }
+/* =========================
+   NOVA TELA INICIAL 🌙
+========================= */
+
+
+.titulo-principal {
+
+    animation:
+
+    aparecerTitulo 2s ease;
+
+}
+
+
+
+.frase-inicial {
+
+    animation:
+
+    aparecerTitulo 3s ease;
+
+}
+
+
+
+.lua {
+
+
+    position:fixed;
+
+
+    top:40px;
+
+    right:50px;
+
+
+    font-size:60px;
+
+
+    filter:
+
+    drop-shadow(
+    0 0 20px #ffe8a3
+    );
+
+
+    animation:
+
+    flutuarLua 4s infinite ease-in-out;
+
+
+}
+
+
+
+@keyframes aparecerTitulo {
+
+
+    from {
+
+        opacity:0;
+
+        transform:
+
+        translateY(30px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+    }
+
+
+}
+
+
+
+@keyframes flutuarLua {
+
+
+    50% {
+
+        transform:
+
+        translateY(-15px);
+
+    }
+
+
+}
