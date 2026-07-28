@@ -1,241 +1,322 @@
-console.log("SCRIPT FUNCIONANDO");
-// ===============================
-// CONTROLE DAS TELAS
-// ===============================
+// ================================
+// PRESENTE PARA RÔ ❤️
+// Feh & Rô - 1 mês
+// ================================
+
+
 
 const screens = document.querySelectorAll(".screen");
 
 let currentScreen = 0;
 
 
-function showScreen(index) {
+
+function showScreen(number){
 
     screens.forEach(screen => {
+
         screen.classList.remove("active");
+
     });
 
-    if (screens[index]) {
-        screens[index].classList.add("active");
+
+    if(screens[number]){
+
+        screens[number].classList.add("active");
+
     }
 
 }
 
 
 
-// ===============================
+
+
+
+// ================================
 // BOTÃO INICIAL
-// ===============================
-
-const openGift = document.getElementById("openGift");
+// ================================
 
 
-if (openGift) {
-
-    openGift.addEventListener("click", () => {
-
-        currentScreen = 1;
-
-        showScreen(currentScreen);
-
-        setTimeout(startTyping, 800);
-
-    });
-
-}
+document
+.getElementById("start")
+.addEventListener("click",()=>{
 
 
+    currentScreen = 1;
 
+    showScreen(currentScreen);
 
-// ===============================
-// BOTÕES CONTINUAR
-// ===============================
+    petals(15);
 
-const nextButtons = document.querySelectorAll("button");
-console.log("Botões encontrados:", nextButtons.length);
-
-
-nextButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        currentScreen++;
-
-
-        if (currentScreen < screens.length) {
-
-            showScreen(currentScreen);
-
-        }
-
-    });
 
 });
 
 
 
 
-// ===============================
-// CARTA DIGITANDO
-// ===============================
 
 
-const text = `Oi, minha Rô ❤️
 
-Hoje completamos um mês de uma história que eu espero que dure muito.
-
-Obrigado por cada conversa, cada sorriso e cada momento.
-
-Você é uma pessoa incrível e eu sou muito feliz por ter você comigo.
-
-Espero que esse seja só o primeiro capítulo de muitos.
-
-Com muito carinho,
-
-Seu Feh ❤️`;
+// ================================
+// BOTÕES CONTINUAR
+// ================================
 
 
-let textIndex = 0;
+document
+.querySelectorAll(".next")
+.forEach(button=>{
 
 
-function startTyping() {
-
-    const letter = document.getElementById("typingText");
+    button.addEventListener("click",()=>{
 
 
-    if (!letter) return;
+        currentScreen++;
 
 
-    letter.innerHTML = "";
+        if(currentScreen < screens.length){
 
-    textIndex = 0;
+            showScreen(currentScreen);
 
-
-    function write() {
-
-
-        if (textIndex < text.length) {
-
-
-            letter.innerHTML += text.charAt(textIndex);
-
-
-            textIndex++;
-
-
-            setTimeout(write, 40);
-
+            petals(8);
 
         }
+
+
+    });
+
+
+});
+
+
+
+
+
+
+
+
+// ================================
+// CARTA DIGITANDO
+// ================================
+
+
+const letterText = `
+
+Oi, minha Rô ❤️
+
+
+Hoje fazemos 1 mês.
+
+
+Pode parecer pouco tempo,
+mas foi tempo suficiente para você
+se tornar alguém muito especial para mim.
+
+
+Obrigado pelos momentos,
+pelas conversas,
+pelos sorrisos
+e por ser essa pessoa incrível.
+
+
+Espero que seja só o começo
+da nossa história.
+
+
+Com carinho,
+
+Seu Feh ❤️
+
+`;
+
+
+
+let letterPosition = 0;
+
+
+
+function typeLetter(){
+
+
+    const letter = document.getElementById("letter");
+
+
+    if(letterPosition < letterText.length){
+
+
+        letter.innerHTML += letterText.charAt(letterPosition);
+
+
+        letterPosition++;
+
+
+        setTimeout(typeLetter,40);
 
 
     }
 
 
-    write();
-
 }
 
 
 
+setTimeout(typeLetter,1000);
 
 
-// ===============================
+
+
+
+
+
+
+// ================================
 // CORAÇÃO
-// ===============================
+// ================================
 
 
-const heart = document.getElementById("heart");
 
-const message = document.getElementById("message");
+const heart =
+document.getElementById("heart");
 
 
-const messages = [
+const heartText =
+document.getElementById("heartText");
 
-"Seu sorriso é meu lugar favorito ❤️",
 
-"Eu amo quando você me chama de Feh 💕",
 
-"Minha Rô é uma pessoa especial ✨",
+const heartMessages=[
 
-"Obrigado por existir 🌹",
+"Você é meu lugar favorito ❤️",
 
-"Você deixa meus dias melhores ❤️"
+"Obrigado por existir, Rô 💕",
+
+"Seu sorriso melhora meu dia ✨",
+
+"Eu adoro quando você me chama de Feh 🥰",
+
+"Meu coração escolheu você ❤️"
 
 ];
 
 
-if (heart) {
+
+heart.addEventListener("click",()=>{
 
 
-    heart.addEventListener("click", () => {
+    heartText.innerHTML =
+    heartMessages[
+        Math.floor(
+            Math.random()*heartMessages.length
+        )
+    ];
 
 
-        const random = messages[
-            Math.floor(Math.random() * messages.length)
-        ];
+    floatingHeart();
 
 
-        message.innerHTML = random;
+});
 
 
-        createHeart();
+
+
+
+
+
+
+// ================================
+// ESTRELAS
+// ================================
+
+
+
+const stars =
+document.querySelectorAll(".stars span");
+
+
+const starText =
+document.getElementById("starText");
+
+
+
+stars.forEach(star=>{
+
+
+    star.addEventListener("click",()=>{
+
+
+        starText.innerHTML =
+        "Você ilumina minha vida igual uma estrela ✨❤️";
+
+
+        petals(10);
 
 
     });
 
 
-}
+});
 
 
 
 
 
-// ===============================
+
+
+
+
+// ================================
 // PRESENTE
-// ===============================
-
-
-const gift = document.getElementById("gift");
-
-const giftMessage = document.getElementById("giftMessage");
-
-
-if (gift) {
-
-
-    gift.addEventListener("click", () => {
-
-
-        gift.innerHTML = "💖";
-
-
-        giftMessage.innerHTML =
-        "O maior presente foi ter encontrado você, minha Rô ❤️";
-
-
-        for(let i = 0; i < 10; i++){
-
-            createHeart();
-
-        }
-
-
-    });
-
-
-}
+// ================================
 
 
 
+const gift =
+document.getElementById("gift");
+
+
+const giftText =
+document.getElementById("giftText");
 
 
 
-// ===============================
+gift.addEventListener("click",()=>{
+
+
+    gift.innerHTML="💖";
+
+
+    giftText.innerHTML =
+    "O melhor presente foi ter encontrado você, Rô ❤️";
+
+
+    petals(25);
+
+
+    for(let i=0;i<5;i++){
+
+        floatingHeart();
+
+    }
+
+
+});
+
+
+
+
+
+
+
+
+
+// ================================
 // CONTADOR
-// ===============================
+// ================================
 
 
-const startDate = new Date("2026-06-30T00:00:00");
+
+const startDate =
+new Date("2026-06-30T00:00:00");
 
 
 
@@ -245,63 +326,47 @@ function updateCounter(){
     const now = new Date();
 
 
-    const difference = now - startDate;
-
-
-    if(difference < 0) return;
+    const diff =
+    now-startDate;
 
 
 
-    const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
+    const days =
+    Math.floor(
+    diff/(1000*60*60*24)
     );
 
 
-    const hours = Math.floor(
-        difference / (1000 * 60 * 60) % 24
+    const hours =
+    Math.floor(
+    diff/(1000*60*60)%24
     );
 
 
-    const minutes = Math.floor(
-        difference / (1000 * 60) % 60
+    const minutes =
+    Math.floor(
+    diff/(1000*60)%60
     );
 
 
-    const seconds = Math.floor(
-        difference / 1000 % 60
+    const seconds =
+    Math.floor(
+    diff/1000%60
     );
 
 
 
-    const elements = {
+    document.getElementById("days").innerHTML=days;
 
+    document.getElementById("hours").innerHTML=hours;
 
-        days,
+    document.getElementById("minutes").innerHTML=minutes;
 
-        hours,
-
-        minutes,
-
-        seconds
-
-    };
-
-
-
-    for(let id in elements){
-
-        const element = document.getElementById(id);
-
-        if(element){
-
-            element.innerHTML = elements[id];
-
-        }
-
-    }
+    document.getElementById("seconds").innerHTML=seconds;
 
 
 }
+
 
 
 setInterval(updateCounter,1000);
@@ -312,33 +377,108 @@ updateCounter();
 
 
 
-// ===============================
-// CORAÇÕES FLUTUANDO
-// ===============================
 
 
-function createHeart(){
 
 
-    const heart = document.createElement("div");
+
+// ================================
+// PETALAS 🌸
+// ================================
 
 
-    heart.innerHTML = "❤️";
+
+function petals(amount){
 
 
-    heart.className = "heart";
+
+    const area =
+    document.getElementById("effects");
+
+
+
+    for(let i=0;i<amount;i++){
+
+
+        const petal =
+        document.createElement("div");
+
+
+        petal.className="petal";
+
+
+        petal.innerHTML="🌸";
+
+
+        petal.style.left =
+        Math.random()*100+"vw";
+
+
+        petal.style.animationDuration =
+        (3+Math.random()*5)+"s";
+
+
+
+        area.appendChild(petal);
+
+
+
+        setTimeout(()=>{
+
+            petal.remove();
+
+        },8000);
+
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+// ================================
+// CORAÇÕES FLUTUANTES
+// ================================
+
+
+
+function floatingHeart(){
+
+
+    const area =
+    document.getElementById("effects");
+
+
+
+    const heart =
+    document.createElement("div");
+
+
+
+    heart.className="floating-heart";
+
+
+    heart.innerHTML="❤️";
+
 
 
     heart.style.left =
-    Math.random() * 100 + "vw";
+    Math.random()*100+"vw";
 
 
-    heart.style.fontSize =
-    Math.random()*20+20+"px";
+    heart.style.animationDuration =
+    (3+Math.random()*4)+"s";
 
 
 
-    document.body.appendChild(heart);
+    area.appendChild(heart);
 
 
 
@@ -346,7 +486,7 @@ function createHeart(){
 
         heart.remove();
 
-    },6000);
+    },7000);
 
 
 }
@@ -354,27 +494,32 @@ function createHeart(){
 
 
 
-// ===============================
+
+
+
+
+
+// ================================
 // RECOMEÇAR
-// ===============================
+// ================================
 
 
-const restart = document.getElementById("restart");
+
+document
+.getElementById("restart")
+.addEventListener("click",()=>{
 
 
-if(restart){
+    currentScreen=0;
 
 
-    restart.addEventListener("click",()=>{
+    showScreen(0);
 
 
-        currentScreen = 0;
+    letterPosition=0;
 
 
-        showScreen(0);
+    document.getElementById("letter").innerHTML="";
 
 
-    });
-
-
-}
+});
