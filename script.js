@@ -1,3 +1,4 @@
+console.log("SCRIPT FUNCIONANDO");
 // ===============================
 // CONTROLE DAS TELAS
 // ===============================
