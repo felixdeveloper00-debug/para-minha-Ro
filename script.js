@@ -443,9 +443,28 @@ document
     posicao=0;
 
 
-    document
-    .getElementById("carta")
-    .innerHTML="";
+    const botaoReiniciar = document.getElementById("reiniciar");
 
 
-});
+if(botaoReiniciar){
+
+    botaoReiniciar.addEventListener("click",()=>{
+
+
+        telaAtual = 1;
+
+
+        mostrarTela(1);
+
+
+        posicao = 0;
+
+
+        document
+        .getElementById("carta")
+        .innerHTML = "";
+
+
+    });
+
+}
