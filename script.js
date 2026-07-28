@@ -449,25 +449,17 @@ criarBrilhos();
 document
 const botaoReiniciar = document.getElementById("reiniciar");
 
+if (botaoReiniciar) {
 
-if(botaoReiniciar){
-
-    botaoReiniciar.addEventListener("click",()=>{
-
+    botaoReiniciar.addEventListener("click", ()=> {
 
         telaAtual = 1;
 
-
         mostrarTela(1);
-
 
         posicao = 0;
 
-
-        document
-        .getElementById("carta")
-        .innerHTML = "";
-
+        document.getElementById("carta").innerHTML = "";
 
     });
 
