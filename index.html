@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Minha Rô ❤️</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="stars"></div>
+  <div class="hearts"></div>
+
+  <section class="hero">
+    <h2>Para a garota mais incrível do mundo...</h2>
+    <h1>Minha Rô ❤️</h1>
+    <p>De alguém que você chama de <strong>Feh</strong></p>
+    <a href="#carta" class="btn">✨ Abrir meu presente</a>
+  </section>
+
+  <section id="carta" class="card">
+    <h2>💌 Uma carta para você</h2>
+    <p>
+      Oi, Rô...
+      <br><br>
+      Hoje faz exatamente um mês desde que começamos nossa história.
+      Pode parecer pouco para quem olha de fora, mas para mim já foi tempo suficiente para perceber o quanto você é especial.
+      <br><br>
+      Você transformou dias comuns em dias felizes.
+      E toda vez que você me chama de "Feh", meu coração sorri um pouquinho.
+      <br><br>
+      Obrigado por cada conversa, cada risada e cada momento.
+      <br><br>
+      Espero que esse seja apenas o primeiro capítulo de uma história muito longa.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>❤️ Clique no coração</h2>
+    <div id="bigHeart">❤️</div>
+    <p id="heartMessage">Clique no coração para descobrir um motivo pelo qual você é especial.</p>
+  </section>
+
+  <section class="card">
+    <h2>🌟 Estrelas do nosso primeiro mês</h2>
+    <div class="star-grid">
+      <button class="star" data-msg="Você faz meus dias melhores ✨">⭐</button>
+      <button class="star" data-msg="Quero viver muitos meses ao seu lado 💖">⭐</button>
+      <button class="star" data-msg="Você virou meu lugar favorito 🌙">⭐</button>
+      <button class="star" data-msg="Nosso primeiro mês é só o começo 🌸">⭐</button>
+    </div>
+    <p id="starMessage">Clique em uma estrela.</p>
+  </section>
+
+  <section class="card surprise">
+    <h2>🎁 Abra o presente</h2>
+    <button id="giftBtn" class="btn">Abrir 🎀</button>
+    <div id="giftMessage" class="hidden">
+      <h3>❤️ O melhor presente desse último mês foi conhecer você, minha Rô.</h3>
+    </div>
+  </section>
+
+  <section class="final">
+    <h2>🌙 Uma última coisa...</h2>
+    <p>
+      Rô, obrigado por esse primeiro mês.
+      <br>
+      Obrigado por existir.
+      <br>
+      Eu te amo. ❤️
+    </p>
+
+    <div class="signature">— Seu Feh ❤️</div>
+
+    <button id="secretBtn" class="secret-btn">❤️ Segredo</button>
+  </section>
+
+  <div id="secretModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>🤫 Cantinho secreto do Feh</h2>
+      <p>
+        Se você encontrou isso, é porque chegou até o final do meu presente.
+        <br><br>
+        Eu só queria dizer mais uma vez:
+        <br><br>
+        <strong>Eu te amo, minha Rô. ❤️</strong>
+      </p>
+      <button id="closeModal" class="btn">Fechar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
