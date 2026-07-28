@@ -452,7 +452,7 @@ const botaoReiniciar = document.getElementById("reiniciar");
 
 if (botaoReiniciar) {
 
-    botaoReiniciar.addEventListener("click", ()=> {
+    botaoReiniciar.onclick = function() {
 
         telaAtual = 1;
 
@@ -462,6 +462,6 @@ if (botaoReiniciar) {
 
         document.getElementById("carta").innerHTML = "";
 
-    });
+    };
 
 }
