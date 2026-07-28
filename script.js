@@ -447,20 +447,7 @@ criarBrilhos();
 
 
 document
-.getElementById("reiniciar")
-.addEventListener("click",()=>{
-
-
-    telaAtual = 1;
-
-
-    mostrarTela(1);
-
-
-    posicao=0;
-
-
-    const botaoReiniciar = document.getElementById("reiniciar");
+const botaoReiniciar = document.getElementById("reiniciar");
 
 
 if(botaoReiniciar){
@@ -483,6 +470,5 @@ if(botaoReiniciar){
 
 
     });
-
 
 }
