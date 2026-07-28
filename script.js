@@ -293,7 +293,6 @@ document
     "Meu maior presente foi ter encontrado você, Rô ❤️";
 
 
-});
 
 
 
