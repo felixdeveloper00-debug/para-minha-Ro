@@ -50,7 +50,7 @@ if (openGift) {
 // BOTÕES CONTINUAR
 // ===============================
 
-const nextButtons = document.querySelectorAll(".next-btn");
+const nextButtons = document.querySelectorAll("button");
 
 
 nextButtons.forEach(button => {
