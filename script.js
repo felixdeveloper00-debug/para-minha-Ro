@@ -51,7 +51,7 @@ if (openGift) {
 // ===============================
 
 const nextButtons = document.querySelectorAll("button");
-console.log(nextButtons);
+console.log("Botões encontrados:", nextButtons.length);
 
 
 nextButtons.forEach(button => {
