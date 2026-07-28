@@ -1,29 +1,31 @@
-// =================================
+// ======================================
 // PRESENTE PARA RÔ ❤️🌸🌿
-// Feh & Rô - 1 mês
-// =================================
+// Feh & Rô
+// ======================================
+
+
+let telaAtual = 1;
+
+
+const telas = document.querySelectorAll(".tela");
 
 
 
-const screens = document.querySelectorAll(".screen");
+function mostrarTela(numero){
 
-let currentScreen = 0;
+    telas.forEach(tela=>{
 
-
-
-
-function showScreen(number){
-
-    screens.forEach(screen => {
-
-        screen.classList.remove("active");
+        tela.classList.remove("ativa");
 
     });
 
 
-    if(screens[number]){
+    const tela = document.getElementById("tela"+numero);
 
-        screens[number].classList.add("active");
+
+    if(tela){
+
+        tela.classList.add("ativa");
 
     }
 
@@ -33,59 +35,40 @@ function showScreen(number){
 
 
 
-// =================================
-// BOTÃO INICIAL
-// =================================
+
+
+// ======================================
+// NAVEGAÇÃO
+// ======================================
+
+
+function proximaTela(){
+
+    if(telaAtual < 9){
+
+        telaAtual++;
+
+        mostrarTela(telaAtual);
+
+        criarPetalas(8);
+
+    }
+
+}
+
+
 
 
 document
-.querySelector(".start")
+.getElementById("botaoInicio")
 .addEventListener("click",()=>{
 
 
-    currentScreen = 1;
+    telaAtual = 2;
 
-    showScreen(currentScreen);
+    mostrarTela(telaAtual);
 
-    createGarden(20);
-
-
-});
-
-
-
-
-
-
-
-
-// =================================
-// PRÓXIMAS TELAS
-// =================================
-
-
-document
-.querySelectorAll(".next")
-.forEach(button=>{
-
-
-    button.addEventListener("click",()=>{
-
-
-        currentScreen++;
-
-
-        if(currentScreen < screens.length){
-
-            showScreen(currentScreen);
-
-            createGarden(8);
-
-        }
-
-
-    });
-
+    criarPetalas(20);
 
 });
 
@@ -93,15 +76,30 @@ document
 
 
 
+for(let i=2;i<=8;i++){
+
+
+    document
+    .getElementById("botao"+i)
+    .addEventListener("click",proximaTela);
+
+
+}
 
 
 
-// =================================
+
+
+
+
+
+
+// ======================================
 // CARTA DIGITANDO
-// =================================
+// ======================================
 
 
-const letter = `
+const carta = `
 
 Oi, minha Rô ❤️
 
@@ -115,12 +113,10 @@ se tornar alguém muito especial para mim.
 
 
 Obrigado por cada conversa,
-cada sorriso,
-cada momento.
+cada sorriso e cada momento.
 
 
-Eu espero que esse seja apenas
-o começo de muitos capítulos
+Eu espero que esse seja só o começo
 da nossa história.
 
 
@@ -132,28 +128,30 @@ Seu Feh ❤️
 
 
 
-let letterIndex = 0;
+let letra = 0;
 
 
 
-function writeLetter(){
+function escreverCarta(){
 
 
-    const element =
-    document.getElementById("letter");
+    const elemento =
+    document.getElementById("textoCarta");
 
 
-    if(letterIndex < letter.length){
+    if(letra < carta.length){
 
 
-        element.innerHTML +=
-        letter.charAt(letterIndex);
+        elemento.innerHTML += carta[letra];
 
 
-        letterIndex++;
+        letra++;
 
 
-        setTimeout(writeLetter,45);
+        setTimeout(
+            escreverCarta,
+            40
+        );
 
 
     }
@@ -163,7 +161,10 @@ function writeLetter(){
 
 
 
-setTimeout(writeLetter,1200);
+setTimeout(
+    escreverCarta,
+    1200
+);
 
 
 
@@ -172,47 +173,44 @@ setTimeout(writeLetter,1200);
 
 
 
-// =================================
+// ======================================
 // CORAÇÃO ❤️
-// =================================
+// ======================================
 
 
-const heart =
-document.getElementById("heart");
+const mensagensCoracao=[
 
 
-const heartText =
-document.getElementById("heartText");
+"Você deixa meus dias melhores ❤️",
 
+"Obrigado por ser minha Rô 🌸",
 
+"Eu adoro quando você me chama de Feh 🥰",
 
-const messages = [
+"Espero viver muitos momentos com você 💚",
 
-"Meu lugar favorito é perto de você ❤️",
+"Meu coração escolheu você ❤️"
 
-"Obrigado por me fazer sorrir, Rô 🌸",
-
-"Você é uma pessoa muito especial 💚",
-
-"Eu amo quando você me chama de Feh 🥰",
-
-"Nosso primeiro mês de muitos ❤️"
 
 ];
 
 
 
-heart.addEventListener("click",()=>{
+document
+.getElementById("coracao")
+.addEventListener("click",()=>{
 
 
-    heartText.innerHTML =
-    messages[
-        Math.floor(Math.random()*messages.length)
+    document
+    .getElementById("mensagemCoracao")
+    .innerHTML =
+    mensagensCoracao[
+        Math.floor(
+            Math.random()*mensagensCoracao.length
+        )
     ];
 
-
-    floatingHeart();
-
+    criarPetalas(10);
 
 });
 
@@ -223,27 +221,29 @@ heart.addEventListener("click",()=>{
 
 
 
-
-// =================================
+// ======================================
 // ESTRELAS ⭐
-// =================================
+// ======================================
 
 
-document
-.querySelectorAll(".stars span")
-.forEach(star=>{
+const estrelas =
+document.querySelectorAll(".estrelas span");
 
 
-    star.addEventListener("click",()=>{
+
+estrelas.forEach(estrela=>{
+
+
+    estrela.addEventListener("click",()=>{
 
 
         document
-        .getElementById("starText")
+        .getElementById("mensagemEstrela")
         .innerHTML =
-        "Você ilumina meus dias igual uma estrela ✨💚💗";
+        "Você ilumina minha vida, Rô ✨💚💗";
 
 
-        createGarden(12);
+        criarPetalas(12);
 
 
     });
@@ -258,36 +258,28 @@ document
 
 
 
-// =================================
+// ======================================
 // PRESENTE 🎁
-// =================================
+// ======================================
 
 
-
-const gift =
-document.getElementById("gift");
-
-
-gift.addEventListener("click",()=>{
-
-
-    gift.innerHTML="💖";
+document
+.getElementById("presente")
+.addEventListener("click",()=>{
 
 
     document
-    .getElementById("giftText")
+    .getElementById("presente")
+    .innerHTML="💖";
+
+
+    document
+    .getElementById("mensagemPresente")
     .innerHTML =
     "O maior presente foi ter encontrado você, Rô ❤️🌿";
 
 
-    createGarden(30);
-
-
-    for(let i=0;i<8;i++){
-
-        floatingHeart();
-
-    }
+    criarPetalas(30);
 
 
 });
@@ -299,119 +291,129 @@ gift.addEventListener("click",()=>{
 
 
 
-// =================================
-// CONTADOR ⏳
-// =================================
+
+// ======================================
+// CONTADOR DESDE 30/06/2026
+// ======================================
 
 
-
-const beginning =
+const inicio =
 new Date("2026-06-30T00:00:00");
 
 
 
-function counter(){
+function atualizarTempo(){
 
 
-    const now =
+    const agora =
     new Date();
 
 
-    const time =
-    now - beginning;
+    const diferenca =
+    agora - inicio;
 
 
 
-    const days =
+    const dias =
     Math.floor(
-    time/(1000*60*60*24)
+        diferenca /
+        (1000*60*60*24)
     );
 
 
-    const hours =
+    const horas =
     Math.floor(
-    time/(1000*60*60)%24
-    );
+        diferenca /
+        (1000*60*60)
+    ) % 24;
 
 
-    const minutes =
+
+    const minutos =
     Math.floor(
-    time/(1000*60)%60
-    );
+        diferenca /
+        (1000*60)
+    ) % 60;
 
 
-    const seconds =
+
+    const segundos =
     Math.floor(
-    time/1000%60
-    );
+        diferenca /
+        1000
+    ) % 60;
 
 
 
-    document.getElementById("days").innerHTML=days;
+    document.getElementById("dias").innerHTML=dias;
 
-    document.getElementById("hours").innerHTML=hours;
+    document.getElementById("horas").innerHTML=horas;
 
-    document.getElementById("minutes").innerHTML=minutes;
+    document.getElementById("minutos").innerHTML=minutos;
 
-    document.getElementById("seconds").innerHTML=seconds;
+    document.getElementById("segundos").innerHTML=segundos;
 
 
 }
 
 
 
-setInterval(counter,1000);
-
-counter();
-
-
-
+setInterval(
+    atualizarTempo,
+    1000
+);
 
 
-
+atualizarTempo();
 
 
 
-// =================================
-// JARDIM CAINDO 🌸🌿
-// =================================
 
 
-function createGarden(amount){
+
+
+
+
+// ======================================
+// PETALAS 🌸🌿
+// ======================================
+
+
+function criarPetalas(numero){
 
 
     const area =
-    document.getElementById("effects");
+    document.getElementById("efeitos");
 
 
 
-    const elements = [
+    const flores=[
 
         "🌸",
-
         "🌿",
-
         "🍃",
-
         "🌷"
 
     ];
 
 
 
-    for(let i=0;i<amount;i++){
+    for(let i=0;i<numero;i++){
 
 
         const item =
         document.createElement("div");
 
 
+
         item.className="petal";
 
 
         item.innerHTML =
-        elements[
-            Math.floor(Math.random()*elements.length)
+        flores[
+            Math.floor(
+                Math.random()*flores.length
+            )
         ];
 
 
@@ -432,7 +434,9 @@ function createGarden(amount){
 
         setTimeout(()=>{
 
+
             item.remove();
+
 
         },8000);
 
@@ -449,88 +453,27 @@ function createGarden(amount){
 
 
 
-
-// =================================
-// CORAÇÕES FLUTUANDO ❤️
-// =================================
-
-
-
-function floatingHeart(){
-
-
-    const area =
-    document.getElementById("effects");
-
-
-
-    const heart =
-    document.createElement("div");
-
-
-    heart.className =
-    "floating-heart";
-
-
-    heart.innerHTML="❤️";
-
-
-
-    heart.style.left =
-    Math.random()*100+"vw";
-
-
-
-    heart.style.animationDuration =
-    (3+Math.random()*4)+"s";
-
-
-
-    area.appendChild(heart);
-
-
-
-    setTimeout(()=>{
-
-
-        heart.remove();
-
-
-    },7000);
-
-
-}
-
-
-
-
-
-
-
-
-
-// =================================
-// RECOMEÇAR
-// =================================
-
+// ======================================
+// REINICIAR
+// ======================================
 
 
 document
-.querySelector(".restart")
+.getElementById("reiniciar")
 .addEventListener("click",()=>{
 
 
-    currentScreen=0;
+    telaAtual=1;
 
 
-    showScreen(0);
+    mostrarTela(1);
 
 
-    letterIndex=0;
+    letra=0;
 
 
     document
-    .getElementById("letter")
+    .getElementById("textoCarta")
     .innerHTML="";
 
 
