@@ -2,457 +2,318 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Para minha Rô ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>Para minha Rô ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- Fundo animado -->
-    <div class="stars"></div>
-    <div class="hearts-container"></div>
-    <div class="petals-container"></div>
 
+<div id="effects"></div>
 
-    <!-- Tela inicial -->
-    <section id="intro" class="screen active">
 
-        <div class="intro-box">
 
-            <div class="envelope">
-                💌
-            </div>
+<section class="screen active">
 
-            <h1>
-                Tem uma cartinha para você...
-            </h1>
+<div class="card">
 
-            <p>
-                De alguém que tem muita sorte de ter encontrado você.
-            </p>
+<h1>
+💌 Para minha Rô
+</h1>
 
-            <button id="openGift">
-                ✨ Abrir meu presente
-            </button>
 
-        </div>
+<p>
+Um pequeno presente do seu Feh ❤️
+</p>
 
-    </section>
 
+<button id="start">
+Abrir meu presente ✨
+</button>
 
 
-    <!-- Nome -->
-    <section id="nameScreen" class="screen">
+</div>
 
-        <div class="glass">
+</section>
 
-            <p>
-                Esse presente é para...
-            </p>
 
-            <h1>
-                Minha Rô ❤️
-            </h1>
 
-            <p class="small">
-                Da pessoa que você chama de Feh.
-            </p>
 
-            <button class="next-btn">
-                Continuar ✨
-            </button>
 
-        </div>
+<section class="screen">
 
-    </section>
+<div class="card">
 
+<h1>
+Nossa história ❤️
+</h1>
 
 
+<p>
+Nem parece que já passou um mês...
+</p>
 
-    <!-- Carta -->
-    <section id="letter" class="screen">
 
-        <div class="glass letter-box">
+<button class="next">
+Continuar 🌙
+</button>
 
-            <h2>
-                Oi, Rô ❤️
-            </h2>
 
-            <p id="typingText"></p>
+</div>
 
+</section>
 
-            <button class="next-btn">
-                Próximo capítulo 🌙
-            </button>
 
-        </div>
 
-    </section>
 
 
 
 
+<section class="screen">
 
-    <!-- Capítulo das mensagens -->
+<div class="card">
 
-    <section id="messages" class="screen">
+<h1>
+Uma carta para você 💌
+</h1>
 
-        <div class="glass">
 
-            <h2>
-                Pequenas coisas que eu amo em você ❤️
-            </h2>
+<p id="letter"></p>
 
 
-            <div class="heart-button" id="heartButton">
-                ❤️
-            </div>
+<button class="next">
+Continuar ❤️
+</button>
 
 
-            <p id="loveMessage">
-                Clique no coração...
-            </p>
+</div>
 
+</section>
 
-            <button class="next-btn">
-                Continuar 🌸
-            </button>
 
 
-        </div>
 
-    </section>
 
 
 
+<section class="screen">
 
+<div class="card">
 
-    <!-- Céu estrelado -->
+<h1>
+Um segredo...
+</h1>
 
-    <section id="starsPage" class="screen">
 
+<div id="heart">
+❤️
+</div>
 
-        <div class="glass">
 
+<p id="heartText">
+Clique no coração
+</p>
 
-            <h2>
-                Nosso pequeno universo ✨
-            </h2>
 
+<button class="next">
+Continuar ✨
+</button>
 
-            <p>
-                Cada estrela guarda uma mensagem.
-            </p>
 
+</div>
 
-            <div class="star-area">
+</section>
 
-                <span class="click-star">
-                    ⭐
-                </span>
 
-                <span class="click-star">
-                    ⭐
-                </span>
 
-                <span class="click-star">
-                    ⭐
-                </span>
 
-                <span class="click-star">
-                    ⭐
-                </span>
 
-            </div>
 
 
-            <p id="starMessage">
-                
-            </p>
 
+<section class="screen">
 
-            <button class="next-btn">
-                Continuar 🌷
-            </button>
+<div class="card">
 
+<h1>
+Estrelas para você ⭐
+</h1>
 
-        </div>
 
+<div class="stars">
 
-    </section>
-        <!-- Jardim mágico -->
+<span>⭐</span>
+<span>⭐</span>
+<span>⭐</span>
 
-    <section id="garden" class="screen">
+</div>
 
-        <div class="glass">
 
-            <h2>
-                Um jardim para minha Rô 🌸
-            </h2>
+<p id="starText">
+Clique em uma estrela
+</p>
 
 
-            <p>
-                Passe por aqui e veja as flores nascerem...
-            </p>
+<button class="next">
+Continuar 🎁
+</button>
 
 
-            <div class="garden-area" id="gardenArea">
+</div>
 
-            </div>
+</section>
 
 
-            <button class="next-btn">
-                Continuar 💖
-            </button>
 
 
-        </div>
 
-    </section>
 
 
 
 
+<section class="screen">
 
-    <!-- Caixa de presente -->
+<div class="card">
 
-    <section id="gift" class="screen">
 
+<h1>
+Tenho algo para você 🎁
+</h1>
 
-        <div class="glass">
 
+<div id="gift">
+🎁
+</div>
 
-            <h2>
-                Tenho uma última coisa para você 🎁
-            </h2>
 
+<p id="giftText">
+Clique no presente
+</p>
 
-            <div id="giftBox" class="gift-box">
-                🎁
-            </div>
 
+<button class="next">
+Continuar 💖
+</button>
 
-            <p id="giftText">
-                Clique no presente...
-            </p>
 
+</div>
 
-            <button class="next-btn">
-                Continuar ✨
-            </button>
+</section>
 
 
-        </div>
 
 
-    </section>
 
 
 
 
+<section class="screen">
 
-    <!-- Contador -->
+<div class="card">
 
-    <section id="counter" class="screen">
 
+<h1>
+Nosso tempo ❤️
+</h1>
 
-        <div class="glass">
 
+<div class="counter">
 
-            <h2>
-                Desde que nossa história começou ❤️
-            </h2>
+<div>
+<span id="days">0</span>
+Dias
+</div>
 
+<div>
+<span id="hours">0</span>
+Horas
+</div>
 
-            <div class="counter-box">
+<div>
+<span id="minutes">0</span>
+Min
+</div>
 
+<div>
+<span id="seconds">0</span>
+Seg
+</div>
 
-                <div>
-                    <span id="days">
-                        0
-                    </span>
+</div>
 
-                    <small>
-                        Dias
-                    </small>
 
-                </div>
+<button class="next">
+Final 💕
+</button>
 
 
+</div>
 
-                <div>
+</section>
 
-                    <span id="hours">
-                        0
-                    </span>
 
-                    <small>
-                        Horas
-                    </small>
 
-                </div>
 
 
 
-                <div>
 
-                    <span id="minutes">
-                        0
-                    </span>
 
-                    <small>
-                        Minutos
-                    </small>
 
-                </div>
+<section class="screen">
 
+<div class="card final">
 
+<h1>
+Minha Rô ❤️
+</h1>
 
-                <div>
 
-                    <span id="seconds">
-                        0
-                    </span>
+<p>
 
-                    <small>
-                        Segundos
-                    </small>
+Obrigado pelo nosso primeiro mês.
 
-                </div>
+<br><br>
 
+Você me faz muito feliz.
 
-            </div>
+<br><br>
 
+Que esse seja só o começo da nossa história.
 
+<br><br>
 
-            <button class="next-btn">
-                Última mensagem 💌
-            </button>
+Eu te amo.
 
+<br><br>
 
-        </div>
+— Feh ❤️
 
+</p>
 
-    </section>
 
+<button id="restart">
+Ver novamente ✨
+</button>
 
 
+</div>
 
+</section>
 
-    <!-- Carta final -->
 
-    <section id="finalLetter" class="screen">
 
 
-        <div class="glass final-box">
 
 
-            <h2>
-                Minha Rô ❤️
-            </h2>
+<script src="script.js"></script>
 
-
-
-            <p id="finalText">
-
-
-                Obrigado por esse primeiro mês.
-
-
-                <br><br>
-
-
-                Talvez para algumas pessoas um mês pareça pouco...
-
-
-                <br><br>
-
-
-                Mas para mim foi tempo suficiente para perceber o quanto você é especial.
-
-
-                <br><br>
-
-
-                Obrigado por cada conversa, cada sorriso e cada momento.
-
-
-                <br><br>
-
-
-                Você tornou meus dias mais felizes.
-
-
-                <br><br>
-
-
-                Espero que esse seja apenas o começo de uma história linda.
-
-
-                <br><br>
-
-
-                Eu te amo, minha Rô ❤️
-
-
-                <br><br>
-
-
-                — Seu Feh ❤️
-
-
-            </p>
-
-
-
-            <button id="restart">
-                Ver novamente ✨
-            </button>
-
-
-        </div>
-
-
-    </section>
-
-
-
-
-
-
-    <!-- Efeito final -->
-
-    <div id="loveFinal">
-
-
-        <h1>
-            EU ❤️ VOCÊ
-        </h1>
-
-
-        <h2>
-            Feliz 1 mês, minha Rô
-        </h2>
-
-
-        <p>
-            — Seu Feh ❤️
-        </p>
-
-
-    </div>
-
-
-
-
-
-    <!-- Scripts -->
-
-    <script src="script.js"></script>
 
 </body>
 
