@@ -1,37 +1,23 @@
 // ===============================
-// CONFIGURAÇÕES
+// CONTROLE DAS TELAS
 // ===============================
-
-
-const startDate = new Date("2026-06-30T00:00:00");
-
-
-
-// ===============================
-// TROCA DE TELAS
-// ===============================
-
 
 const screens = document.querySelectorAll(".screen");
 
 let currentScreen = 0;
 
 
-
-function showScreen(index){
+function showScreen(index) {
 
     screens.forEach(screen => {
-
         screen.classList.remove("active");
-
     });
 
-
-    screens[index].classList.add("active");
-
+    if (screens[index]) {
+        screens[index].classList.add("active");
+    }
 
 }
-
 
 
 
@@ -39,50 +25,49 @@ function showScreen(index){
 // BOTÃO INICIAL
 // ===============================
 
-
 const openGift = document.getElementById("openGift");
 
 
-openGift.addEventListener("click",()=>{
+if (openGift) {
 
+    openGift.addEventListener("click", () => {
 
-    showScreen(1);
+        currentScreen = 1;
 
+        showScreen(currentScreen);
 
-});
+        setTimeout(startTyping, 800);
+
+    });
+
+}
 
 
 
 
 // ===============================
-// BOTÕES PRÓXIMO
+// BOTÕES CONTINUAR
 // ===============================
-
 
 const nextButtons = document.querySelectorAll(".next-btn");
 
 
-nextButtons.forEach(button=>{
+nextButtons.forEach(button => {
 
-
-    button.addEventListener("click",()=>{
-
+    button.addEventListener("click", () => {
 
         currentScreen++;
 
 
-        if(currentScreen < screens.length){
+        if (currentScreen < screens.length) {
 
             showScreen(currentScreen);
 
         }
 
-
     });
 
-
 });
-
 
 
 
@@ -92,269 +77,112 @@ nextButtons.forEach(button=>{
 // ===============================
 
 
-const letter = `
+const text = `Oi, minha Rô ❤️
 
-Hoje faz um mês desde que nossa história começou.
+Hoje completamos um mês de uma história que eu espero que dure muito.
 
-Pode parecer pouco tempo para algumas pessoas...
+Obrigado por cada conversa, cada sorriso e cada momento.
 
-Mas para mim foi tempo suficiente para perceber o quanto você é especial.
+Você é uma pessoa incrível e eu sou muito feliz por ter você comigo.
 
-Obrigado por cada conversa, cada risada e cada momento.
+Espero que esse seja só o primeiro capítulo de muitos.
 
-Você chegou e deixou meus dias mais felizes.
+Com muito carinho,
 
-Espero viver muitos capítulos ao seu lado.
-
-Obrigado por existir, minha Rô ❤️
+Seu Feh ❤️`;
 
 
-`;
+let textIndex = 0;
 
 
+function startTyping() {
 
-let letterIndex = 0;
-
-
-function typeLetter(){
+    const letter = document.getElementById("typingText");
 
 
-    const element =
-    document.getElementById("typingText");
+    if (!letter) return;
 
 
-    if(!element) return;
+    letter.innerHTML = "";
+
+    textIndex = 0;
 
 
-
-    if(letterIndex < letter.length){
-
-
-        element.innerHTML += letter.charAt(letterIndex);
+    function write() {
 
 
-        letterIndex++;
+        if (textIndex < text.length) {
 
 
-        setTimeout(typeLetter,45);
+            letter.innerHTML += text.charAt(textIndex);
+
+
+            textIndex++;
+
+
+            setTimeout(write, 40);
+
+
+        }
 
 
     }
 
 
+    write();
+
 }
 
 
 
-openGift.addEventListener("click",()=>{
-
-
-    setTimeout(typeLetter,1000);
-
-
-});
-
-
-
-
 
 
 // ===============================
-// CORAÇÃO COM FRASES
+// CORAÇÃO
 // ===============================
 
 
-const messages=[
+const heart = document.getElementById("heart");
 
+const message = document.getElementById("message");
+
+
+const messages = [
 
 "Seu sorriso é meu lugar favorito ❤️",
 
+"Eu amo quando você me chama de Feh 💕",
 
-"Eu amo seu jeitinho 💕",
+"Minha Rô é uma pessoa especial ✨",
 
+"Obrigado por existir 🌹",
 
-"Obrigado por me fazer feliz 🌹",
-
-
-"Você é meu presente favorito ✨",
-
-
-"Eu amo quando você me chama de Feh ❤️",
-
-
-"Minha Rô é incrível 💖"
-
+"Você deixa meus dias melhores ❤️"
 
 ];
 
 
-
-const heartButton =
-document.getElementById("heartButton");
+if (heart) {
 
 
-
-const loveMessage =
-document.getElementById("loveMessage");
+    heart.addEventListener("click", () => {
 
 
-
-if(heartButton){
-
-
-heartButton.addEventListener("click",()=>{
+        const random = messages[
+            Math.floor(Math.random() * messages.length)
+        ];
 
 
-    const random =
-    messages[Math.floor(Math.random()*messages.length)];
+        message.innerHTML = random;
 
 
-    loveMessage.innerHTML=random;
+        createHeart();
 
 
-
-    createHeart();
-
-
-
-});
+    });
 
 
 }
-
-
-
-
-
-
-// ===============================
-// ESTRELAS
-// ===============================
-
-
-
-const starMessages=[
-
-
-"Nosso primeiro capítulo ✨",
-
-
-"Ainda temos muitas histórias para viver ❤️",
-
-
-"Você ilumina meus dias 🌙",
-
-
-"Obrigado por estar comigo 💕"
-
-
-];
-
-
-
-const stars =
-document.querySelectorAll(".click-star");
-
-
-
-const starMessage =
-document.getElementById("starMessage");
-
-
-
-stars.forEach(star=>{
-
-
-star.addEventListener("click",()=>{
-
-
-    starMessage.innerHTML =
-
-    starMessages[
-        Math.floor(Math.random()*starMessages.length)
-    ];
-
-
-
-    createHeart();
-
-
-});
-
-
-});
-
-
-
-
-
-
-
-// ===============================
-// JARDIM
-// ===============================
-
-
-const garden =
-document.getElementById("gardenArea");
-
-
-
-if(garden){
-
-
-garden.addEventListener("mousemove",()=>{
-
-
-    createFlower();
-
-
-});
-
-
-
-garden.addEventListener("touchstart",()=>{
-
-
-    createFlower();
-
-
-});
-
-
-}
-
-
-
-
-function createFlower(){
-
-
-    const flower =
-    document.createElement("div");
-
-
-    flower.className="flower";
-
-
-    flower.innerHTML="🌸";
-
-
-
-    flower.style.left =
-    Math.random()*90+"%";
-
-
-    flower.style.top =
-    Math.random()*80+"%";
-
-
-    garden.appendChild(flower);
-
-
-}
-
-
 
 
 
@@ -365,43 +193,35 @@ function createFlower(){
 // ===============================
 
 
+const gift = document.getElementById("gift");
 
-const giftBox =
-document.getElementById("giftBox");
-
-
-
-const giftText =
-document.getElementById("giftText");
+const giftMessage = document.getElementById("giftMessage");
 
 
-
-if(giftBox){
-
-
-giftBox.addEventListener("click",()=>{
+if (gift) {
 
 
-    giftBox.classList.add("gift-open");
+    gift.addEventListener("click", () => {
 
 
-    giftText.innerHTML =
-
-    "O melhor presente foi conhecer você, minha Rô ❤️";
+        gift.innerHTML = "💖";
 
 
-    for(let i=0;i<20;i++){
-
-        createHeart();
-
-    }
+        giftMessage.innerHTML =
+        "O maior presente foi ter encontrado você, minha Rô ❤️";
 
 
-});
+        for(let i = 0; i < 10; i++){
+
+            createHeart();
+
+        }
+
+
+    });
 
 
 }
-
 
 
 
@@ -413,6 +233,9 @@ giftBox.addEventListener("click",()=>{
 // ===============================
 
 
+const startDate = new Date("2026-06-30T00:00:00");
+
+
 
 function updateCounter(){
 
@@ -420,60 +243,63 @@ function updateCounter(){
     const now = new Date();
 
 
-
-    const difference =
-    now - startDate;
-
+    const difference = now - startDate;
 
 
     if(difference < 0) return;
 
 
 
-    const days =
-    Math.floor(
-    difference /
-    (1000*60*60*24)
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+
+    const hours = Math.floor(
+        difference / (1000 * 60 * 60) % 24
+    );
+
+
+    const minutes = Math.floor(
+        difference / (1000 * 60) % 60
+    );
+
+
+    const seconds = Math.floor(
+        difference / 1000 % 60
     );
 
 
 
-    const hours =
-    Math.floor(
-    difference /
-    (1000*60*60)
-    ) % 24;
+    const elements = {
+
+
+        days,
+
+        hours,
+
+        minutes,
+
+        seconds
+
+    };
 
 
 
-    const minutes =
-    Math.floor(
-    difference /
-    (1000*60)
-    ) % 60;
+    for(let id in elements){
 
+        const element = document.getElementById(id);
 
+        if(element){
 
-    const seconds =
-    Math.floor(
-    difference /
-    1000
-    ) % 60;
+            element.innerHTML = elements[id];
 
+        }
 
-
-    document.getElementById("days").innerHTML=days;
-
-    document.getElementById("hours").innerHTML=hours;
-
-    document.getElementById("minutes").innerHTML=minutes;
-
-    document.getElementById("seconds").innerHTML=seconds;
-
+    }
 
 
 }
-
 
 
 setInterval(updateCounter,1000);
@@ -484,35 +310,29 @@ updateCounter();
 
 
 
-
-
 // ===============================
-// CORAÇÕES
+// CORAÇÕES FLUTUANDO
 // ===============================
-
 
 
 function createHeart(){
 
 
-    const heart =
-    document.createElement("div");
+    const heart = document.createElement("div");
 
 
-    heart.className="heart";
+    heart.innerHTML = "❤️";
 
 
-    heart.innerHTML="❤️";
-
+    heart.className = "heart";
 
 
     heart.style.left =
-    Math.random()*100+"vw";
-
+    Math.random() * 100 + "vw";
 
 
     heart.style.fontSize =
-    (Math.random()*20+20)+"px";
+    Math.random()*20+20+"px";
 
 
 
@@ -522,139 +342,37 @@ function createHeart(){
 
     setTimeout(()=>{
 
-
         heart.remove();
-
 
     },6000);
 
 
-
 }
 
 
 
 
-
-
-
 // ===============================
-// PÉTALAS
+// RECOMEÇAR
 // ===============================
 
 
-
-function createPetal(){
-
-
-    const petal =
-    document.createElement("div");
-
-
-
-    petal.className="petal";
-
-
-    petal.innerHTML="🌸";
-
-
-
-    petal.style.left =
-    Math.random()*100+"vw";
-
-
-    petal.style.fontSize =
-    (Math.random()*15+15)+"px";
-
-
-
-    document.body.appendChild(petal);
-
-
-
-    setTimeout(()=>{
-
-
-        petal.remove();
-
-
-    },10000);
-
-
-}
-
-
-
-setInterval(createPetal,800);
-
-
-
-
-
-
-// ===============================
-// FINAL
-// ===============================
-
-
-const restart =
-document.getElementById("restart");
-
+const restart = document.getElementById("restart");
 
 
 if(restart){
 
 
-restart.addEventListener("click",()=>{
+    restart.addEventListener("click",()=>{
 
 
-    currentScreen=0;
+        currentScreen = 0;
 
 
-    showScreen(0);
+        showScreen(0);
 
 
-});
-
-
-}
-
-
-
-
-// Easter egg:
-// Clique 5 vezes no coração
-
-
-let secretClicks=0;
-
-
-
-if(heartButton){
-
-
-heartButton.addEventListener("click",()=>{
-
-
-    secretClicks++;
-
-
-    if(secretClicks===5){
-
-
-        alert(
-
-        "❤️ Você encontrou o cantinho secreto do Feh para a Rô."
-
-
-        );
-
-
-    }
-
-
-
-});
+    });
 
 
 }
