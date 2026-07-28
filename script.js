@@ -1,13 +1,14 @@
-// ================================
-// PRESENTE PARA RÔ ❤️
+// =================================
+// PRESENTE PARA RÔ ❤️🌸🌿
 // Feh & Rô - 1 mês
-// ================================
+// =================================
 
 
 
 const screens = document.querySelectorAll(".screen");
 
 let currentScreen = 0;
+
 
 
 
@@ -32,14 +33,13 @@ function showScreen(number){
 
 
 
-
-// ================================
+// =================================
 // BOTÃO INICIAL
-// ================================
+// =================================
 
 
 document
-.getElementById("start")
+.querySelector(".start")
 .addEventListener("click",()=>{
 
 
@@ -47,7 +47,7 @@ document
 
     showScreen(currentScreen);
 
-    petals(15);
+    createGarden(20);
 
 
 });
@@ -58,9 +58,10 @@ document
 
 
 
-// ================================
-// BOTÕES CONTINUAR
-// ================================
+
+// =================================
+// PRÓXIMAS TELAS
+// =================================
 
 
 document
@@ -78,7 +79,7 @@ document
 
             showScreen(currentScreen);
 
-            petals(8);
+            createGarden(8);
 
         }
 
@@ -95,17 +96,17 @@ document
 
 
 
-// ================================
+// =================================
 // CARTA DIGITANDO
-// ================================
+// =================================
 
 
-const letterText = `
+const letter = `
 
 Oi, minha Rô ❤️
 
 
-Hoje fazemos 1 mês.
+Hoje completamos nosso primeiro mês.
 
 
 Pode parecer pouco tempo,
@@ -113,13 +114,13 @@ mas foi tempo suficiente para você
 se tornar alguém muito especial para mim.
 
 
-Obrigado pelos momentos,
-pelas conversas,
-pelos sorrisos
-e por ser essa pessoa incrível.
+Obrigado por cada conversa,
+cada sorriso,
+cada momento.
 
 
-Espero que seja só o começo
+Eu espero que esse seja apenas
+o começo de muitos capítulos
 da nossa história.
 
 
@@ -131,26 +132,28 @@ Seu Feh ❤️
 
 
 
-let letterPosition = 0;
+let letterIndex = 0;
 
 
 
-function typeLetter(){
+function writeLetter(){
 
 
-    const letter = document.getElementById("letter");
+    const element =
+    document.getElementById("letter");
 
 
-    if(letterPosition < letterText.length){
+    if(letterIndex < letter.length){
 
 
-        letter.innerHTML += letterText.charAt(letterPosition);
+        element.innerHTML +=
+        letter.charAt(letterIndex);
 
 
-        letterPosition++;
+        letterIndex++;
 
 
-        setTimeout(typeLetter,40);
+        setTimeout(writeLetter,45);
 
 
     }
@@ -160,7 +163,7 @@ function typeLetter(){
 
 
 
-setTimeout(typeLetter,1000);
+setTimeout(writeLetter,1200);
 
 
 
@@ -169,10 +172,9 @@ setTimeout(typeLetter,1000);
 
 
 
-// ================================
-// CORAÇÃO
-// ================================
-
+// =================================
+// CORAÇÃO ❤️
+// =================================
 
 
 const heart =
@@ -184,17 +186,17 @@ document.getElementById("heartText");
 
 
 
-const heartMessages=[
+const messages = [
 
-"Você é meu lugar favorito ❤️",
+"Meu lugar favorito é perto de você ❤️",
 
-"Obrigado por existir, Rô 💕",
+"Obrigado por me fazer sorrir, Rô 🌸",
 
-"Seu sorriso melhora meu dia ✨",
+"Você é uma pessoa muito especial 💚",
 
-"Eu adoro quando você me chama de Feh 🥰",
+"Eu amo quando você me chama de Feh 🥰",
 
-"Meu coração escolheu você ❤️"
+"Nosso primeiro mês de muitos ❤️"
 
 ];
 
@@ -204,10 +206,8 @@ heart.addEventListener("click",()=>{
 
 
     heartText.innerHTML =
-    heartMessages[
-        Math.floor(
-            Math.random()*heartMessages.length
-        )
+    messages[
+        Math.floor(Math.random()*messages.length)
     ];
 
 
@@ -223,32 +223,27 @@ heart.addEventListener("click",()=>{
 
 
 
-// ================================
-// ESTRELAS
-// ================================
+
+// =================================
+// ESTRELAS ⭐
+// =================================
 
 
-
-const stars =
-document.querySelectorAll(".stars span");
-
-
-const starText =
-document.getElementById("starText");
-
-
-
-stars.forEach(star=>{
+document
+.querySelectorAll(".stars span")
+.forEach(star=>{
 
 
     star.addEventListener("click",()=>{
 
 
-        starText.innerHTML =
-        "Você ilumina minha vida igual uma estrela ✨❤️";
+        document
+        .getElementById("starText")
+        .innerHTML =
+        "Você ilumina meus dias igual uma estrela ✨💚💗";
 
 
-        petals(10);
+        createGarden(12);
 
 
     });
@@ -263,20 +258,14 @@ stars.forEach(star=>{
 
 
 
-
-// ================================
-// PRESENTE
-// ================================
+// =================================
+// PRESENTE 🎁
+// =================================
 
 
 
 const gift =
 document.getElementById("gift");
-
-
-const giftText =
-document.getElementById("giftText");
-
 
 
 gift.addEventListener("click",()=>{
@@ -285,14 +274,16 @@ gift.addEventListener("click",()=>{
     gift.innerHTML="💖";
 
 
-    giftText.innerHTML =
-    "O melhor presente foi ter encontrado você, Rô ❤️";
+    document
+    .getElementById("giftText")
+    .innerHTML =
+    "O maior presente foi ter encontrado você, Rô ❤️🌿";
 
 
-    petals(25);
+    createGarden(30);
 
 
-    for(let i=0;i<5;i++){
+    for(let i=0;i<8;i++){
 
         floatingHeart();
 
@@ -308,50 +299,50 @@ gift.addEventListener("click",()=>{
 
 
 
-
-// ================================
-// CONTADOR
-// ================================
-
+// =================================
+// CONTADOR ⏳
+// =================================
 
 
-const startDate =
+
+const beginning =
 new Date("2026-06-30T00:00:00");
 
 
 
-function updateCounter(){
+function counter(){
 
 
-    const now = new Date();
+    const now =
+    new Date();
 
 
-    const diff =
-    now-startDate;
+    const time =
+    now - beginning;
 
 
 
     const days =
     Math.floor(
-    diff/(1000*60*60*24)
+    time/(1000*60*60*24)
     );
 
 
     const hours =
     Math.floor(
-    diff/(1000*60*60)%24
+    time/(1000*60*60)%24
     );
 
 
     const minutes =
     Math.floor(
-    diff/(1000*60)%60
+    time/(1000*60)%60
     );
 
 
     const seconds =
     Math.floor(
-    diff/1000%60
+    time/1000%60
     );
 
 
@@ -369,11 +360,9 @@ function updateCounter(){
 
 
 
-setInterval(updateCounter,1000);
+setInterval(counter,1000);
 
-updateCounter();
-
-
+counter();
 
 
 
@@ -382,14 +371,13 @@ updateCounter();
 
 
 
-// ================================
-// PETALAS 🌸
-// ================================
+
+// =================================
+// JARDIM CAINDO 🌸🌿
+// =================================
 
 
-
-function petals(amount){
-
+function createGarden(amount){
 
 
     const area =
@@ -397,38 +385,56 @@ function petals(amount){
 
 
 
+    const elements = [
+
+        "🌸",
+
+        "🌿",
+
+        "🍃",
+
+        "🌷"
+
+    ];
+
+
+
     for(let i=0;i<amount;i++){
 
 
-        const petal =
+        const item =
         document.createElement("div");
 
 
-        petal.className="petal";
+        item.className="petal";
 
 
-        petal.innerHTML="🌸";
+        item.innerHTML =
+        elements[
+            Math.floor(Math.random()*elements.length)
+        ];
 
 
-        petal.style.left =
+
+        item.style.left =
         Math.random()*100+"vw";
 
 
-        petal.style.animationDuration =
+
+        item.style.animationDuration =
         (3+Math.random()*5)+"s";
 
 
 
-        area.appendChild(petal);
+        area.appendChild(item);
 
 
 
         setTimeout(()=>{
 
-            petal.remove();
+            item.remove();
 
         },8000);
-
 
 
     }
@@ -443,9 +449,10 @@ function petals(amount){
 
 
 
-// ================================
-// CORAÇÕES FLUTUANTES
-// ================================
+
+// =================================
+// CORAÇÕES FLUTUANDO ❤️
+// =================================
 
 
 
@@ -461,8 +468,8 @@ function floatingHeart(){
     document.createElement("div");
 
 
-
-    heart.className="floating-heart";
+    heart.className =
+    "floating-heart";
 
 
     heart.innerHTML="❤️";
@@ -471,6 +478,7 @@ function floatingHeart(){
 
     heart.style.left =
     Math.random()*100+"vw";
+
 
 
     heart.style.animationDuration =
@@ -484,7 +492,9 @@ function floatingHeart(){
 
     setTimeout(()=>{
 
+
         heart.remove();
+
 
     },7000);
 
@@ -499,14 +509,14 @@ function floatingHeart(){
 
 
 
-// ================================
+// =================================
 // RECOMEÇAR
-// ================================
+// =================================
 
 
 
 document
-.getElementById("restart")
+.querySelector(".restart")
 .addEventListener("click",()=>{
 
 
@@ -516,10 +526,12 @@ document
     showScreen(0);
 
 
-    letterPosition=0;
+    letterIndex=0;
 
 
-    document.getElementById("letter").innerHTML="";
+    document
+    .getElementById("letter")
+    .innerHTML="";
 
 
 });
