@@ -281,18 +281,6 @@ document
 });
 
 
-    document
-    .getElementById("presente")
-    .innerHTML="💖";
-
-
-
-    document
-    .getElementById("mensagemPresente")
-    .innerHTML =
-    "Meu maior presente foi ter encontrado você, Rô ❤️";
-
-
 
 
 
