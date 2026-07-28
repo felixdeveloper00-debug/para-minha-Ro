@@ -1,5 +1,5 @@
 // ======================================
-// PRESENTE PARA RÔ ❤️🌸🌿
+// PRESENTE PARA RÔ ❤️🌸💚
 // Feh & Rô
 // ======================================
 
@@ -11,7 +11,11 @@ const telas = document.querySelectorAll(".tela");
 
 
 
+
+// TROCAR TELAS
+
 function mostrarTela(numero){
+
 
     telas.forEach(tela=>{
 
@@ -20,12 +24,15 @@ function mostrarTela(numero){
     });
 
 
-    const tela = document.getElementById("tela"+numero);
+
+    const novaTela =
+    document.getElementById("tela"+numero);
 
 
-    if(tela){
 
-        tela.classList.add("ativa");
+    if(novaTela){
+
+        novaTela.classList.add("ativa");
 
     }
 
@@ -38,29 +45,12 @@ function mostrarTela(numero){
 
 
 // ======================================
-// NAVEGAÇÃO
+// BOTÕES
 // ======================================
-
-
-function proximaTela(){
-
-    if(telaAtual < 9){
-
-        telaAtual++;
-
-        mostrarTela(telaAtual);
-
-        criarPetalas(8);
-
-    }
-
-}
-
-
 
 
 document
-.getElementById("botaoInicio")
+.getElementById("abrir")
 .addEventListener("click",()=>{
 
 
@@ -68,7 +58,6 @@ document
 
     mostrarTela(telaAtual);
 
-    criarPetalas(20);
 
 });
 
@@ -76,15 +65,27 @@ document
 
 
 
-for(let i=2;i<=8;i++){
+document
+.querySelectorAll(".proximo")
+.forEach(botao=>{
 
 
-    document
-    .getElementById("botao"+i)
-    .addEventListener("click",proximaTela);
+    botao.addEventListener("click",()=>{
 
 
-}
+        if(telaAtual < 9){
+
+            telaAtual++;
+
+            mostrarTela(telaAtual);
+
+        }
+
+
+    });
+
+
+});
 
 
 
@@ -99,25 +100,27 @@ for(let i=2;i<=8;i++){
 // ======================================
 
 
-const carta = `
+const texto = `
 
 Oi, minha Rô ❤️
 
 
-Hoje completamos nosso primeiro mês.
+Hoje fazemos 1 mês.
 
 
-Pode parecer pouco tempo,
-mas foi tempo suficiente para você
-se tornar alguém muito especial para mim.
+Talvez para algumas pessoas pareça pouco tempo,
+
+mas para mim foi tempo suficiente para você se tornar alguém muito especial.
 
 
-Obrigado por cada conversa,
-cada sorriso e cada momento.
+Obrigado pelos sorrisos,
+
+pelas conversas,
+
+e por todos os momentos que tivemos.
 
 
-Eu espero que esse seja só o começo
-da nossa história.
+Espero que esse seja apenas o começo da nossa história.
 
 
 Com carinho,
@@ -128,30 +131,28 @@ Seu Feh ❤️
 
 
 
-let letra = 0;
+let posicao = 0;
 
 
 
-function escreverCarta(){
+function escrever(){
 
 
-    const elemento =
-    document.getElementById("textoCarta");
+    const caixa =
+    document.getElementById("carta");
 
 
-    if(letra < carta.length){
+
+    if(posicao < texto.length){
 
 
-        elemento.innerHTML += carta[letra];
+        caixa.innerHTML += texto[posicao];
 
 
-        letra++;
+        posicao++;
 
 
-        setTimeout(
-            escreverCarta,
-            40
-        );
+        setTimeout(escrever,45);
 
 
     }
@@ -161,10 +162,8 @@ function escreverCarta(){
 
 
 
-setTimeout(
-    escreverCarta,
-    1200
-);
+setTimeout(escrever,1000);
+
 
 
 
@@ -178,21 +177,22 @@ setTimeout(
 // ======================================
 
 
-const mensagensCoracao=[
+const mensagens = [
 
 
-"Você deixa meus dias melhores ❤️",
-
-"Obrigado por ser minha Rô 🌸",
+"Você é uma das melhores partes do meu dia ❤️",
 
 "Eu adoro quando você me chama de Feh 🥰",
 
-"Espero viver muitos momentos com você 💚",
+"Obrigado por ser minha Rô 🌸",
 
-"Meu coração escolheu você ❤️"
+"Que esse seja o primeiro de muitos meses 💚",
+
+"Meu coração fica feliz com você ❤️"
 
 
 ];
+
 
 
 
@@ -204,15 +204,15 @@ document
     document
     .getElementById("mensagemCoracao")
     .innerHTML =
-    mensagensCoracao[
+    mensagens[
         Math.floor(
-            Math.random()*mensagensCoracao.length
+            Math.random()*mensagens.length
         )
     ];
 
-    criarPetalas(10);
 
 });
+
 
 
 
@@ -226,12 +226,9 @@ document
 // ======================================
 
 
-const estrelas =
-document.querySelectorAll(".estrelas span");
-
-
-
-estrelas.forEach(estrela=>{
+document
+.querySelectorAll(".estrela")
+.forEach(estrela=>{
 
 
     estrela.addEventListener("click",()=>{
@@ -240,16 +237,14 @@ estrelas.forEach(estrela=>{
         document
         .getElementById("mensagemEstrela")
         .innerHTML =
-        "Você ilumina minha vida, Rô ✨💚💗";
-
-
-        criarPetalas(12);
+        "Você ilumina minha vida como uma estrela ✨❤️";
 
 
     });
 
 
 });
+
 
 
 
@@ -273,13 +268,11 @@ document
     .innerHTML="💖";
 
 
+
     document
     .getElementById("mensagemPresente")
     .innerHTML =
-    "O maior presente foi ter encontrado você, Rô ❤️🌿";
-
-
-    criarPetalas(30);
+    "Meu maior presente foi ter encontrado você, Rô ❤️";
 
 
 });
@@ -293,7 +286,7 @@ document
 
 
 // ======================================
-// CONTADOR DESDE 30/06/2026
+// CONTADOR
 // ======================================
 
 
@@ -302,11 +295,12 @@ new Date("2026-06-30T00:00:00");
 
 
 
-function atualizarTempo(){
+function atualizarContador(){
 
 
     const agora =
     new Date();
+
 
 
     const diferenca =
@@ -319,6 +313,7 @@ function atualizarTempo(){
         diferenca /
         (1000*60*60*24)
     );
+
 
 
     const horas =
@@ -359,13 +354,12 @@ function atualizarTempo(){
 
 
 setInterval(
-    atualizarTempo,
+    atualizarContador,
     1000
 );
 
 
-atualizarTempo();
-
+atualizarContador();
 
 
 
@@ -375,76 +369,53 @@ atualizarTempo();
 
 
 // ======================================
-// PETALAS 🌸🌿
+// PEQUENOS BRILHOS ✨
 // ======================================
 
 
-function criarPetalas(numero){
+function criarBrilhos(){
 
 
     const area =
-    document.getElementById("efeitos");
+    document.getElementById("brilhos");
 
 
 
-    const flores=[
-
-        "🌸",
-        "🌿",
-        "🍃",
-        "🌷"
-
-    ];
+    for(let i=0;i<35;i++){
 
 
-
-    for(let i=0;i<numero;i++){
-
-
-        const item =
+        const brilho =
         document.createElement("div");
 
 
 
-        item.className="petal";
+        brilho.className="brilho";
 
 
-        item.innerHTML =
-        flores[
-            Math.floor(
-                Math.random()*flores.length
-            )
-        ];
-
-
-
-        item.style.left =
+        brilho.style.left =
         Math.random()*100+"vw";
 
 
 
-        item.style.animationDuration =
-        (3+Math.random()*5)+"s";
+        brilho.style.top =
+        Math.random()*100+"vh";
 
 
 
-        area.appendChild(item);
+        brilho.style.animationDelay =
+        Math.random()*3+"s";
 
 
 
-        setTimeout(()=>{
-
-
-            item.remove();
-
-
-        },8000);
+        area.appendChild(brilho);
 
 
     }
 
-
 }
+
+
+criarBrilhos();
 
 
 
@@ -463,17 +434,17 @@ document
 .addEventListener("click",()=>{
 
 
-    telaAtual=1;
+    telaAtual = 1;
 
 
     mostrarTela(1);
 
 
-    letra=0;
+    posicao=0;
 
 
     document
-    .getElementById("textoCarta")
+    .getElementById("carta")
     .innerHTML="";
 
 
